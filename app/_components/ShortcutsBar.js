@@ -5,12 +5,12 @@ const ShortcutsBar = () => {
     return (
         <View style={styles.shortcutBar}>
             <Pressable onPress={() => router.push('ProductList')}>
-                <Text>Ver Produtos</Text>
+                <Text>Produtos</Text>
             </Pressable>
             <Pressable onPress={() => router.push('NewMovement')}>
                 <Text>Nova Movimentação</Text>
             </Pressable>
-            <Pressable onPress={() => router.push('Report')}>
+            <Pressable onPress={() => router.push('Reports')}>
                 <Text>Relatório</Text>
             </Pressable>
         </View>
