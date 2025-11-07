@@ -1,17 +1,30 @@
-import { StyleSheet, Text, View, Pressable, } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Platform, } from 'react-native';
 import { useRouter } from 'expo-router';
+import Feather from '@expo/vector-icons/Feather';
+import Foundation from '@expo/vector-icons/Foundation';
+import Entypo from '@expo/vector-icons/Entypo';
+
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+
 const ShortcutsBar = () => {
     const router = useRouter();
     return (
         <View style={styles.shortcutBar}>
-            <Pressable onPress={() => router.push('ProductList')}>
+            <Pressable style={styles.Pressable} onPress={() => router.push('/')}>
+             <Entypo name="grid" size={24} color="black" />
+                <Text>Painel</Text>
+            </Pressable>
+            <Pressable style={styles.Pressable} onPress={() => router.push('ProductList')}>
+                <MaterialCommunityIcons name="clipboard-check-multiple-outline" size={24} color="black" />
                 <Text>Produtos</Text>
             </Pressable>
-            <Pressable onPress={() => router.push('NewMovement')}>
-                <Text>Nova Movimentação</Text>
-            </Pressable>
-            <Pressable onPress={() => router.push('Reports')}>
+            <Pressable style={styles.Pressable} onPress={() => router.push('Reports')}>
+                <Foundation name="graph-bar" size={24} color="black" />
                 <Text>Relatório</Text>
+            </Pressable>
+            <Pressable style={styles.Pressable} onPress={() => router.push('Settings')}>
+                <Feather name="settings" size={24} color="black" />
+                <Text>Ajustes</Text>
             </Pressable>
         </View>
     );
@@ -19,17 +32,21 @@ const ShortcutsBar = () => {
 
 const styles = StyleSheet.create({
     shortcutBar: {
-        position: 'absolute',
-        bottom: 20,
+        backgroundColor: '#fff',
+        width: '100%',
+        height: 70,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 10,
-        backgroundColor: '#f0f0f0',
-        width: '95%',
-        height: 70,
-        borderRadius: 18,
+        position: 'absolute',
+        padding: 15,
+        bottom: Platform.OS === 'ios' ? -25 : 0,
+        borderRadius: 10,
     },
+    Pressable:{
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 });
 
 export default ShortcutsBar;
