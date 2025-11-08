@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         position: 'absolute',
         padding: 15,
-        bottom: Platform.OS === 'ios' ? -25 : 0,
+        paddingHorizontal: 30,
+        bottom: Platform.OS === 'ios' ? -20 : 0,
         borderRadius: 10,
     },
     Pressable:{

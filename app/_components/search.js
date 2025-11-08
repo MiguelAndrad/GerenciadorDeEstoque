@@ -3,8 +3,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Search = () => (
     <View style={styles.search}>
-        <Ionicons name="search" size={24} color="black" />
-        <TextInput placeholder="Buscar" style={{ flex: 1, marginLeft: 10 }} />
+        <Ionicons name="search" size={24} color="grey" />
+        <TextInput placeholder="Buscar" placeholderTextColor={'grey'} style={{ flex: 1, marginLeft: 10 }} />
     </View>
 );
 const styles = StyleSheet.create({
