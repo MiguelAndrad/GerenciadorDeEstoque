@@ -5,9 +5,9 @@ import ShortcutsBar from './_components/ShortcutsBar';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Image } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
-import Search from "./_components/search";
-import { productsBelowMinimumStock, ProductList, calculateTotalInventoryValue, totalProducts } from './_Services/ProductService';
-import { StyleSheet, Text, View, ScrollView, KeyboardAvoidingView, Pressable } from 'react-native';
+import { productsBelowMinimumStock, ProductList, calculateTotalInventoryValue, totalProducts } from './_services/ProductService';
+import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
+import ProductItem from './_components/ProductItem';
 
 export default function App() {
   const [productBelowMinimumStock, setProductBelowMinimumStock] = useState(productsBelowMinimumStock(5));
@@ -42,19 +42,14 @@ export default function App() {
           </View>
           <Text style={{ fontWeight: 'bold', fontSize: 16, marginTop: 15 }}>Atenção: Pouco Estoque </Text>
 
-          {productBelowMinimumStock.map((product) => (
-            <View key={product.id} style={styles.cardMinStock}>
-              <Image source={product.image} style={{ width: 50, height: 50 }} />
-              <View>
-                <Text>{product.name}</Text>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
-                  <Text style={{ color: 'red' }}>{product.quantity}</Text>
-                  <Text style={{ color: 'gray' }}>unidades restantes</Text>
-                </View>
-              </View>
-              <Ionicons name="alert" size={24} color="orange" />
-
-            </View>
+          {productBelowMinimumStock.map((p) => (
+            <ProductItem 
+            key={p.id}
+            product={p}
+            showIcon= {false}
+            QuantityColor= 'red'
+            style={styles.cardMinStock}
+            />
           ))}
 
 
