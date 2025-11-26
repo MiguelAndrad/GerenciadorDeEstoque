@@ -3,32 +3,44 @@ import Product from "../_Models/Product";
 let nextId = 1;
 let products = [];
 
-products.push(new Product(nextId++, "Leave-in", 20, 4, new Date(), null, 45, 5, require('../../assets/leave-in.jpeg')));
-products.push(new Product(nextId++, "Mascara de hidratação", 40, 10, new Date(), null, 90, 5, require('../../assets/mascara.jpeg')));
-products.push(new Product(nextId++, "Shampoo Rub", 20, 5, new Date(), null, 40, 5, require('../../assets/shampoo-rub.jpeg')));
-products.push(new Product(nextId++, "Pomada Modeladora", 15, 8, new Date(), null, 35, 5, require('../../assets/pomada.jpeg')));
-products.push(new Product(nextId++, "Balm para barba", 40, 1, new Date(), null, 80, 5, require('../../assets/balm.jpeg')));
+products.push(new Product(nextId++, "Leave-in", 20, 4, 5, 45, require('../../assets/leave-in.jpeg'), "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+
+    , new Date(), null,));
+products.push(new Product(nextId++, "Mascara de hidratação", 40, 10, 5, 90, require('../../assets/mascara.jpeg'), "Apenas teste!", new Date(), null,));
+products.push(new Product(nextId++, "Shampoo Rub", 20, 5, 5, 40, require('../../assets/shampoo-rub.jpeg'), "Apenas teste!", new Date(), null,));
+products.push(new Product(nextId++, "Pomada Modeladora", 15, 8, 5, 35, require('../../assets/pomada.jpeg'), "Apenas teste!", new Date(), null,));
+products.push(new Product(nextId++, "Balm para barba", 40, 1, 5, 80, require('../../assets/balm.jpeg'), "Apenas teste!", new Date(), null,));
 
 export function ProductList() {
     return products;
 }
 
-export function createProduct({ name, unitValue, quantity, minStock, date, editDate, salePrice, image }) {
+export function createProduct({ nextId, name, unitValue, quantity, minStock, salePrice, image, descript, date, editDate, }) {
     const product = new Product(
-        nextId++,
+        nextId,
         name,
         unitValue,
         quantity,
         minStock,
-        date,
-        editDate,
         salePrice,
-        image 
+        image,
+        descript,
+        date,
+        editDate
     );
     products.push(product);
     return product;
 }
-
+//trabalho de GPT
+export function updateProduct(id, updatedData) {
+    const productIndex = products.findIndex(product => product.id === id);
+    if (productIndex !== -1) {
+        products[productIndex] = { ...products[productIndex], ...updatedData };
+        return products[productIndex];
+    }
+    return null;
+}
+//Até aqui 
 export function calculateTotalInventoryValue() {
     return products.reduce((total, product) => total + product.getTotalValue(), 0);
 }

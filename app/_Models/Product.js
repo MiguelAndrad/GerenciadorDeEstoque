@@ -1,14 +1,15 @@
 class Product {
-    constructor(id, name, price, quantity, minStock, date, editDate = null, salePrice, image = null) {
+    constructor(id, name, price, quantity, minStock, salePrice, image = null, descript, date, editDate = null, ) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.minStock = minStock;
-        this.date = new Date();
-        this.editDate = null;
         this.salePrice = salePrice;
         this.image = image;
+        this.descript = descript;
+        this.date = new Date();
+        this.editDate = null;
        
     }
 

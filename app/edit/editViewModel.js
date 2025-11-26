@@ -1,8 +1,11 @@
-import {useState} from 'react';
+import { useEffect, useState } from 'react';
 import { createProduct } from '../_services/ProductService';
+import { useLocalSearchParams } from 'expo-router';
 
 
 export default function useAddViewModel() {
+    const params = useLocalSearchParams();
+
     const [productName, setProductName] = useState('');
     const [quantity, setQuantity] = useState('');
     const [unitValue, setUnitValue] = useState('');
@@ -10,7 +13,18 @@ export default function useAddViewModel() {
     const [minStock, setMinStock] = useState('');
     const [description, setDescription] = useState('');
 
-    const AddProduct = async () => {
+    useEffect(() => {
+        if (params) {
+            setProductName(params.name || "")
+            setQuantity(params.quantity || "")
+            setUnitValue(params.unitValue || "")
+            setSalePrice(params.salePrice || "")
+            setMinStock(params.minStock || "")
+            setDescription(params.descript || "")
+        }
+    }, [params])
+
+    const updateProduct = async () => {
         const productData = {
             name: productName,
             quantity: parseInt(quantity),
@@ -19,15 +33,7 @@ export default function useAddViewModel() {
             image: null,
             descript: description
         };
-        await createProduct(productData);
-        console.log('Produto adicionado:', productData);
-
-        setProductName('');
-        setQuantity('');
-        setUnitValue('');
-        setSalePrice('');
-        setMinStock('');
-        setDescription('');
+        console.log('Updating product with data:', productData);
 
     };
 

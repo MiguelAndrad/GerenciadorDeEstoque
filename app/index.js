@@ -3,7 +3,6 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from "react";
 import ShortcutsBar from './_components/ShortcutsBar';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { Image } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 import { productsBelowMinimumStock, ProductList, calculateTotalInventoryValue, totalProducts } from './_services/ProductService';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
@@ -13,11 +12,11 @@ export default function App() {
   const [productBelowMinimumStock, setProductBelowMinimumStock] = useState(productsBelowMinimumStock(5));
   const [products, setProducts] = useState(ProductList());
   return (
-    <View >
-      <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
-        <View style={styles.container}>
-          {/*header */}
-          <View style={{ flexDirection: 'row', width: '100%', marginTop: 25, justifyContent: 'space-between', fontWeight: 'bold', fontSize: 24, marginBottom: 20 }}>
+      <View style={{flex:1}} >
+        <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
+          <View style={styles.container}>
+            {/*header */}
+            <View style={{ flexDirection: 'row', width: '100%', marginTop: 25, justifyContent: 'space-between', fontWeight: 'bold', fontSize: 24, marginBottom: 20 }}>
             <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Painel</Text>
             <Ionicons name="person" size={24} color="black" />
           </View>
@@ -51,8 +50,6 @@ export default function App() {
             style={styles.cardMinStock}
             />
           ))}
-
-
         </View>
       </ScrollView>
       {/* shortcuts bar */}
@@ -86,7 +83,6 @@ const styles = StyleSheet.create({
     gap: 8,
     marginTop: 20,
     borderRadius: 10,
-    //shadow / sombra atras do componente
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,

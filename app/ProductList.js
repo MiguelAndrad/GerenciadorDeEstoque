@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from "react";
 import ShortcutsBar from './_components/ShortcutsBar';
-import { Image } from 'react-native';
 import Search from "./_components/search";
 import Entypo from '@expo/vector-icons/Entypo';
 import { useRouter } from 'expo-router';
@@ -32,6 +31,7 @@ export default function ProductListScreen() {
                             product={p}
                             showIcon={true}
                             QuantityColor='gray'
+                            onPress={() => router.push({ pathname: './detailsView', params: { id: p.id } })}
                         />
                     ))}
                 </View>

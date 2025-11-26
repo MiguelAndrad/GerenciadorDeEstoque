@@ -1,11 +1,20 @@
 import { View, Text, ScrollView, Pressable, StyleSheet, TextInput, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
 import ShortcutsBar from '../_components/ShortcutsBar';
-import useAddViewModel from './AddViewModel'
+import useAddViewModel from '../Add/AddViewModel'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useRouter } from 'expo-router';
 
 export default function Add() {
-    const vm = useAddViewModel();
+    const {
+        productName, setProductName,
+        quantity, setQuantity,
+        unitValue, setUnitValue,
+        salePrice, setSalePrice,
+        minStock, setMinStock,
+        description, setDescription,
+        AddProduct
+    } = useAddViewModel();
+
     const router = useRouter();
     return (
         <View style={{ flex: 1 }}>
@@ -26,7 +35,7 @@ export default function Add() {
                         <View style={{ width: '100%', flexDirection: 'column' }}>
                             <View>
                                 <Text style={styles.title}>Nome do Produto</Text>
-                                <TextInput style={styles.inputName} value={vm.productName} onChangeText={vm.setProductName} placeholderTextColor="gray" placeholder="Ex: Leave-in" />
+                                <TextInput style={styles.inputName} value={productName} onChangeText={setProductName} placeholderTextColor="gray" placeholder="Ex: Leave-in" />
                             </View>
                             <View>
                                 <Text style={styles.title}>Descrição</Text>
@@ -56,8 +65,8 @@ export default function Add() {
                                 <TouchableOpacity style={styles.btnAddProduct} onPress={() => { vm.AddProduct(); router.push("/ProductList"); }}>
                                     <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>Adicionar Produto</Text>
                                 </TouchableOpacity>
-                                </View>
-                          
+                            </View>
+
                         </View>
                     </View>
                 </ScrollView>
