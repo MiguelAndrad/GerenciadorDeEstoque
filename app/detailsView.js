@@ -89,7 +89,7 @@ export default function details() {
 
                     <View style={{ marginTop: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                         <Text style={styles.subtitle}> Custo</Text>
-                        <Text style={styles.detailsText} > R$ {product.price}</Text>
+                        <Text style={styles.detailsText} > R$ {product.unitValue}</Text>
                     </View>
                     <View style={{ marginTop: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                         <Text style={styles.subtitle}> Alerta de Estoque Baixo</Text>
@@ -106,7 +106,17 @@ export default function details() {
                     </View>
                 </View>
             </ScrollView>
-            <Pressable onPress={() => router.push('./Add/AddView')}>
+            <Pressable onPress={() => router.push({
+                pathname: './edit/editView', params: {
+                    id: product.id,
+                    name: product.name,
+                    quantity: product.quantity,
+                    unitValue: product.unitValue,
+                    salePrice: product.salePrice,
+                    minStock: product.minStock,
+                    descript: product.descript,
+                }
+            })}>
                 <View style={styles.btnEditProduct}>
                     <Octicons name="pencil" size={30} color="white" />
                 </View>

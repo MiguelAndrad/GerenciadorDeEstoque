@@ -29,6 +29,8 @@ export default function useAddViewModel() {
         setMinStock('');
         setDescription('');
 
+        
+
     };
 
     return {

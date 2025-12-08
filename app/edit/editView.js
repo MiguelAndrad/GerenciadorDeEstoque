@@ -1,25 +1,16 @@
 import { View, Text, ScrollView, Pressable, StyleSheet, TextInput, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
 import ShortcutsBar from '../_components/ShortcutsBar';
-import useAddViewModel from '../Add/AddViewModel'
+import useEditViewModel from './editViewModel'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useRouter } from 'expo-router';
 
 export default function Add() {
-    const {
-        productName, setProductName,
-        quantity, setQuantity,
-        unitValue, setUnitValue,
-        salePrice, setSalePrice,
-        minStock, setMinStock,
-        description, setDescription,
-        AddProduct
-    } = useAddViewModel();
-
+    const vm = useEditViewModel();
     const router = useRouter();
     return (
         <View style={{ flex: 1 }}>
             <View style={styles.header}>
-                <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Adicionar Produto</Text>
+                <Text style={{ fontWeight: 'bold', fontSize: 20 }}>Editar Produto</Text>
             </View>
             <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ flex: 1 }}>
                 <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
@@ -35,7 +26,7 @@ export default function Add() {
                         <View style={{ width: '100%', flexDirection: 'column' }}>
                             <View>
                                 <Text style={styles.title}>Nome do Produto</Text>
-                                <TextInput style={styles.inputName} value={productName} onChangeText={setProductName} placeholderTextColor="gray" placeholder="Ex: Leave-in" />
+                                <TextInput style={styles.inputName} value={vm.productName} onChangeText={vm.setProductName} placeholderTextColor="gray" placeholder="Ex: Leave-in" />
                             </View>
                             <View>
                                 <Text style={styles.title}>Descrição</Text>
@@ -62,8 +53,8 @@ export default function Add() {
                                 </View>
                             </View>
                             <View>
-                                <TouchableOpacity style={styles.btnAddProduct} onPress={() => { vm.AddProduct(); router.push("/ProductList"); }}>
-                                    <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>Adicionar Produto</Text>
+                                <TouchableOpacity style={styles.btnAddProduct} onPress={() => { vm.handleUpdateProduct(); router.push("/ProductList"); }}>
+                                    <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>Atualizar Produto</Text>
                                 </TouchableOpacity>
                             </View>
 

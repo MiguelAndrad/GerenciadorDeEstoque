@@ -17,7 +17,7 @@ export function ProductList() {
 
 export function createProduct({ nextId, name, unitValue, quantity, minStock, salePrice, image, descript, date, editDate, }) {
     const product = new Product(
-        nextId,
+        nextId++,
         name,
         unitValue,
         quantity,
@@ -49,6 +49,6 @@ export function totalProducts() {
     return products.length;
 }
 
-export function productsBelowMinimumStock(minStock) {
-    return products.filter(product => product.quantity <= minStock);
+export function productsBelowMinimumStock() {
+    return products.filter(product => product.quantity <= product.minStock);
 }

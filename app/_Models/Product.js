@@ -1,8 +1,8 @@
 class Product {
-    constructor(id, name, price, quantity, minStock, salePrice, image = null, descript, date, editDate = null, ) {
+    constructor(id, name, unitValue, quantity, minStock, salePrice, image = null, descript, date, editDate = null, ) {
         this.id = id;
         this.name = name;
-        this.price = price;
+        this.unitValue = unitValue;
         this.quantity = quantity;
         this.minStock = minStock;
         this.salePrice = salePrice;
@@ -14,7 +14,7 @@ class Product {
     }
 
     getTotalValue() {
-        return this.price * this.quantity;
+        return this.unitValue * this.quantity;
     }
 
 }

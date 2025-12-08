@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Pressable, Platform, } from 'react-native';
 import { useRouter } from 'expo-router';
-import Feather from '@expo/vector-icons/Feather';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import Foundation from '@expo/vector-icons/Foundation';
 import Entypo from '@expo/vector-icons/Entypo';
 
@@ -18,14 +18,15 @@ const ShortcutsBar = () => {
                 <MaterialCommunityIcons name="clipboard-check-multiple-outline" size={24} color="black" />
                 <Text>Produtos</Text>
             </Pressable>
+            <Pressable style={styles.Pressable} onPress={() => router.push('Settings')}>
+               <Ionicons name="person" size={24} color="black" />
+                <Text>Barbeiros</Text>
+            </Pressable>
             <Pressable style={styles.Pressable} onPress={() => router.push('Reports')}>
                 <Foundation name="graph-bar" size={24} color="black" />
                 <Text>Relatório</Text>
             </Pressable>
-            <Pressable style={styles.Pressable} onPress={() => router.push('Settings')}>
-                <Feather name="settings" size={24} color="black" />
-                <Text>Ajustes</Text>
-            </Pressable>
+            
         </View>
     );
 }

@@ -1,24 +1,27 @@
 import "expo-router/entry";
 import { StatusBar } from 'expo-status-bar';
 import { useState } from "react";
+import { useRouter } from 'expo-router';
 import ShortcutsBar from './_components/ShortcutsBar';
-import Ionicons from '@expo/vector-icons/Ionicons';
 import Feather from '@expo/vector-icons/Feather';
-import { productsBelowMinimumStock, ProductList, calculateTotalInventoryValue, totalProducts } from './_services/ProductService';
+import { productsBelowMinimumStock, calculateTotalInventoryValue, totalProducts,  } from './_services/ProductService';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
 import ProductItem from './_components/ProductItem';
 
 export default function App() {
-  const [productBelowMinimumStock, setProductBelowMinimumStock] = useState(productsBelowMinimumStock(5));
-  const [products, setProducts] = useState(ProductList());
+  
+  const [productBelowMinimumStock, setProductBelowMinimumStock] = useState(productsBelowMinimumStock());
+  const router = useRouter();
   return (
-      <View style={{flex:1}} >
-        <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
-          <View style={styles.container}>
-            {/*header */}
-            <View style={{ flexDirection: 'row', width: '100%', marginTop: 25, justifyContent: 'space-between', fontWeight: 'bold', fontSize: 24, marginBottom: 20 }}>
+    <View style={{ flex: 1 }} >
+      <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
+        <View style={styles.container}>
+          {/*header */}
+          <View style={{ flexDirection: 'row', width: '100%', marginTop: 25, justifyContent: 'space-between', fontWeight: 'bold', fontSize: 24, marginBottom: 20 }}>
             <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Painel</Text>
-            <Ionicons name="person" size={24} color="black" />
+            <Pressable onPress={() => router.push('Settings')}>
+              <Feather name="settings" size={24} color="black" />
+            </Pressable>
           </View>
           <View style={{ marginTop: 16, }}>
             <Text style={{ fontSize: 18, fontWeight: 'bold', marginBottom: 10 }}>Visão Geral do Estoque</Text>
@@ -42,12 +45,12 @@ export default function App() {
           <Text style={{ fontWeight: 'bold', fontSize: 16, marginTop: 15 }}>Atenção: Pouco Estoque </Text>
 
           {productBelowMinimumStock.map((p) => (
-            <ProductItem 
-            key={p.id}
-            product={p}
-            showIcon= {false}
-            QuantityColor= 'red'
-            style={styles.cardMinStock}
+            <ProductItem
+              key={p.id}
+              product={p}
+              showIcon={false}
+              QuantityColor='red'
+              style={styles.cardMinStock}
             />
           ))}
         </View>
