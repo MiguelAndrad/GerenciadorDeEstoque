@@ -3,22 +3,22 @@ import { useRouter } from 'expo-router';
 import LoginViewModel from './loginViewModel';
 
 const LoginView = () => {
-    const { email, setEmail, password, setPassword, Autenticate } = LoginViewModel();
+    const vm = LoginViewModel()
     const router = useRouter();
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Bem-vindo</Text>
             <View>
-                <Text style={styles.label}>E-mail</Text>
-                <TextInput style={styles.input} placeholder="Digite seu e-mail" value={email} onChangeText={setEmail} />
+                <Text>E-mail</Text>
+                <TextInput style={styles.input} placeholder="Digite seu e-mail" value={vm.email} onChangeText={vm.setEmail} />
             </View>
 
             <View>
-                <Text style={styles.label}>Senha</Text>
-                <TextInput style={styles.input} placeholder="Digite sua senha" secureTextEntry value={password} onChangeText={setPassword} />
+                <Text>Senha</Text>
+                <TextInput style={styles.input} placeholder="Digite sua senha" secureTextEntry value={vm.password} onChangeText={vm.setPassword} />
             </View>
-            <TouchableOpacity style={styles.button} onPress={Autenticate}>
+            <TouchableOpacity style={styles.button} onPress={vm.Authenticate}>
                 <Text style={styles.buttonText}>Entrar</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => router.push('forgot-password')}>
@@ -46,8 +46,7 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 40,
-        borderColor: '#ccc',
-        borderWidth: 1,
+        backgroundColor: '#f5f5f5',
         marginBottom: 15,
         paddingHorizontal: 10,
     },

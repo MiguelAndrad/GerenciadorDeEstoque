@@ -8,7 +8,7 @@ const LoginViewModel = () => {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-    async function Autenticate(){
+    async function Authenticate(){
         try{
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
@@ -27,7 +27,7 @@ const LoginViewModel = () => {
     setEmail,
     password,
     setPassword,
-    Autenticate
+    Authenticate
   };
 };
 
