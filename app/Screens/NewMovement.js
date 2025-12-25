@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import ShortcutsBar from './_components/ShortcutsBar';
+import ShortcutsBar from '../_components/ShortcutsBar';
 import { StyleSheet, Text, View, KeyboardAvoidingView, ScrollView, Pressable } from 'react-native';
 
 export default function ProductList() {

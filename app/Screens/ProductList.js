@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from "react";
-import ShortcutsBar from './_components/ShortcutsBar';
-import Search from "./_components/search";
+import ShortcutsBar from '../_components/ShortcutsBar';
+import Search from "../_components/search";
 import Entypo from '@expo/vector-icons/Entypo';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
-import { ProductList } from './_services/ProductService';
-import ProductItem from './_components/ProductItem';
+import { ProductList } from '../_services/ProductService';
+import ProductItem from '../_components/ProductItem';
 
 
 export default function ProductListScreen() {

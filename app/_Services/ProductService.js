@@ -31,16 +31,7 @@ export function createProduct({ nextId, name, unitValue, quantity, minStock, sal
     products.push(product);
     return product;
 }
-//trabalho de GPT
-export function updateProduct(id, updatedData) {
-    const productIndex = products.findIndex(product => product.id === id);
-    if (productIndex !== -1) {
-        products[productIndex] = { ...products[productIndex], ...updatedData };
-        return products[productIndex];
-    }
-    return null;
-}
-//Até aqui 
+
 export function calculateTotalInventoryValue() {
     return products.reduce((total, product) => total + product.getTotalValue(), 0);
 }

@@ -5,3 +5,5 @@ class Barber {
         this.image = image;
     }
 }
+
+export default Barber;

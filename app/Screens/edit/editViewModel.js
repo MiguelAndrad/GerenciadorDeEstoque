@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ProductList, updateProduct } from '../_services/ProductService';
+import { ProductList, updateProduct } from '../../_services/ProductService';
 import { useLocalSearchParams } from 'expo-router';
 
 export default function useEditViewModel() {

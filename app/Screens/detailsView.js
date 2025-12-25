@@ -1,9 +1,9 @@
 import { View, Text, Pressable, ScrollView, Image } from 'react-native';
-import ShortcutsBar from './_components/ShortcutsBar';
+import ShortcutsBar from '../_components/ShortcutsBar';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { ProductList } from './_services/ProductService';
+import { ProductList } from '../_services/ProductService';
 import Entypo from '@expo/vector-icons/Entypo';
 import Octicons from '@expo/vector-icons/Octicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
