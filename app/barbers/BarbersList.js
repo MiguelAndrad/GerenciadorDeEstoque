@@ -1,17 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from "react";
 import ShortcutsBar from '../_components/ShortcutsBar';
 import Search from "../_components/search";
 import Entypo from '@expo/vector-icons/Entypo';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
-import { ProductList } from '../_services/ProductService';
-import ProductItem from '../_components/ProductItem';
+import { useState } from 'react';
+import {BarberList} from '../_services/BarberService';
+import CardBarber from '../_components/CardBarber';
 
 
-export default function ProductListScreen() {
-    const [products, setProducts] = useState(ProductList());
-
+export default function BarberListScreen() {
+    const [Barbers, SetBarbers] = useState(BarberList())
     const router = useRouter();
 
     return (
@@ -25,18 +24,17 @@ export default function ProductListScreen() {
                     {/*search*/}
                     <Search />
                     {/* product list */}
-                    {products.map((p) => (
-                        <ProductItem
-                            key={p.id}
-                            product={p}
+                    {Barbers.map((b) => (
+                        <CardBarber
+                            key={b.id}
+                            Barber={b}
                             showIcon={true}
-                            QuantityColor='gray'
-                            onPress={() => router.push({ pathname: './detailsView', params: { id: p.id } })}
+                            onPress={() => router.push({ pathname: './BarberDetailsView', params: { id: b.id } })}
                         />
                     ))}
                 </View>
             </ScrollView>
-            <Pressable onPress={() => router.push('./Add/AddView')}>
+            <Pressable onPress={() => router.push('./AddBarbers')}>
                 <View style={styles.btnAddProduct}>
                     <Entypo name="plus" size={30} color="white" />
                 </View>

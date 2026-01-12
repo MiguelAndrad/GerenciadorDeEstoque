@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, Pressable, StyleSheet, TextInput, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
-import ShortcutsBar from '../../_components/ShortcutsBar';
+import ShortcutsBar from '../_components/ShortcutsBar';
 import useEditViewModel from './editViewModel'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useRouter } from 'expo-router';

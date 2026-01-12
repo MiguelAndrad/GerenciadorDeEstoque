@@ -1,12 +1,11 @@
-import "expo-router/entry";
 import { StatusBar } from 'expo-status-bar';
 import { useState } from "react";
 import { useRouter } from 'expo-router';
-import ShortcutsBar from '../_components/ShortcutsBar';
+import ShortcutsBar from './_components/ShortcutsBar';
 import Feather from '@expo/vector-icons/Feather';
-import { productsBelowMinimumStock, calculateTotalInventoryValue, totalProducts,  } from '../_services/ProductService';
+import { productsBelowMinimumStock, calculateTotalInventoryValue, totalProducts,  } from './_services/ProductService';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
-import ProductItem from '../_components/ProductItem';
+import ProductItem from './_components/ProductItem';
 
 export default function App() {
   
@@ -14,7 +13,7 @@ export default function App() {
   const router = useRouter();
   return (
     <View style={{ flex: 1 }} >
-      <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
+      <ScrollView contentContainerStyle={{ flex: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
         <View style={styles.container}>
           {/*header */}
           <View style={{ flexDirection: 'row', width: '100%', marginTop: 25, justifyContent: 'space-between', fontWeight: 'bold', fontSize: 24, marginBottom: 20 }}>

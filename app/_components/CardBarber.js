@@ -3,6 +3,7 @@ import Entypo from '@expo/vector-icons/Entypo';
 
 
 export default function CardBarber({
+    Barber,
     onPress = null,
     showIcon = true,
     style = {}

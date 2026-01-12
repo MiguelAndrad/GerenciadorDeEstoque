@@ -1,14 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from "react";
 import ShortcutsBar from './_components/ShortcutsBar';
 import Search from "./_components/search";
 import Entypo from '@expo/vector-icons/Entypo';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
-
-import CardBarber from '../../_components/CardBarber';
+import { ProductList } from './_services/ProductService';
+import ProductItem from './_components/ProductItem';
 
 
 export default function ProductListScreen() {
+    const [products, setProducts] = useState(ProductList());
 
     const router = useRouter();
 
@@ -23,17 +25,18 @@ export default function ProductListScreen() {
                     {/*search*/}
                     <Search />
                     {/* product list */}
-                    {Barber.map((b) => (
-                        <CardBarber
-                            key={b.id}
-                            Barber={b}
+                    {products.map((p) => (
+                        <ProductItem
+                            key={p.id}
+                            product={p}
                             showIcon={true}
-                            onPress={() => router.push({ pathname: './detailsView', params: { id: b.id } })}
+                            QuantityColor='gray'
+                            onPress={() => router.push({ pathname: './detailsView', params: { id: p.id } })}
                         />
                     ))}
                 </View>
             </ScrollView>
-            <Pressable onPress={() => router.push('./AddBarbers')}>
+            <Pressable onPress={() => router.push('./Add/AddView')}>
                 <View style={styles.btnAddProduct}>
                     <Entypo name="plus" size={30} color="white" />
                 </View>

@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { createProduct } from '../../_services/ProductService';
+import { createProduct } from '../_services/ProductService';
 
 
 export default function useAddViewModel() {

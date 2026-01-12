@@ -18,7 +18,7 @@ const ShortcutsBar = () => {
                 <MaterialCommunityIcons name="clipboard-check-multiple-outline" size={24} color="black" />
                 <Text>Produtos</Text>
             </Pressable>
-            <Pressable style={styles.Pressable} onPress={() => router.push('Settings')}>
+            <Pressable style={styles.Pressable} onPress={() => router.push('/barbers/BarbersList')}>
                <Ionicons name="person" size={24} color="black" />
                 <Text>Barbeiros</Text>
             </Pressable>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         padding: 15,
         paddingHorizontal: 30,
-        bottom: Platform.OS === 'ios' ? -20 : 0,
+        bottom: Platform.OS === 'ios' ? 0 : 0,//antes usava -20 no ios, pq ficava muito em cima, mas agr esta ficando normal com 0 .
         borderRadius: 10,
     },
     Pressable:{

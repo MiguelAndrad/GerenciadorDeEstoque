@@ -3,10 +3,10 @@ import Barber from "../_Models/Barber";
 let nextId = 1;
 let barbers = [];
 
-barbers.push(new Barber(nextId++, "Neto Ferreira", require('../../assets/barber1.jpeg')));
-barbers.push(new Barber(nextId++, "Anderson Victor", require('../../assets/barber2.jpeg')));
-barbers.push(new Barber(nextId++, "Jeferson Lima", require('../../assets/barber3.jpeg')));
-barbers.push(new Barber(nextId++, "Eduardo Bezerra", require('../../assets/barber4.jpeg')));
+barbers.push(new Barber(nextId++, "Neto Ferreira", require('../../assets/barbeiro.jpg')));
+barbers.push(new Barber(nextId++, "Anderson Victor", require('../../assets/barbeiro.jpg')));
+barbers.push(new Barber(nextId++, "Jeferson Lima", require('../../assets/barbeiro.jpg')));
+barbers.push(new Barber(nextId++, "Eduardo Bezerra", require('../../assets/barbeiro.jpg')));
 
 
 export function BarberList() {

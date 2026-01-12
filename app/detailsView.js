@@ -1,9 +1,10 @@
 import { View, Text, Pressable, ScrollView, Image } from 'react-native';
-import ShortcutsBar from '../_components/ShortcutsBar';
+import ShortcutsBar from './_components/ShortcutsBar';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet } from 'react-native';
-import { ProductList } from '../_services/ProductService';
+import { ProductList } from './_services/ProductService';
 import Entypo from '@expo/vector-icons/Entypo';
 import Octicons from '@expo/vector-icons/Octicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
@@ -19,12 +20,7 @@ export default function details() {
             <View style={styles.header}>
                 <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Detalhes do Produto</Text>
             </View>
-            <ScrollView contentContainerStyle={{
-                flexGrow: 1,
-                padding: 20,
-                paddingBottom: 80,
-                backgroundColor: '#f5f5f5'
-            }} >
+                   <ScrollView contentContainerStyle={{ flex: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
                 <View style={styles.image}>
                     <Image
                         source={product.image}
@@ -121,27 +117,25 @@ export default function details() {
                     <Octicons name="pencil" size={30} color="white" />
                 </View>
             </Pressable>
-            <Pressable onPress={() => router.push('./Add/AddView')}>
+            <Pressable onPress={() => router.push('./Transaction')}>
                 <View style={styles.btnMoviment}>
                     <MaterialCommunityIcons name="swap-horizontal" size={24} color="white" />
                 </View>
             </Pressable>
 
             <ShortcutsBar />
+            <StatusBar style="auto" />
         </View>
     );
 }
 const styles = StyleSheet.create({
     header: {
-        width: '100%',
+        paddingTop: 50,
+        paddingBottom: 20,
+        backgroundColor: '#fff',
         alignItems: 'center',
-        paddingVertical: 12,
-        paddingHorizontal: 20,
-        backgroundColor: '#f5f5f5',
-        borderColor: 'gray',
-        borderWidth: 1,
         borderBottomWidth: 1,
-        borderBottomColor: '#ddd',
+        borderBottomColor: 'gray',
     },
     btnEditProduct: {
         position: 'absolute',
