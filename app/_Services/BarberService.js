@@ -1,4 +1,4 @@
-import Barber from "../_Models/Barber"; 
+import Barber from "../_Models/barber"; 
 
 let nextId = 1;
 let barbers = [];
