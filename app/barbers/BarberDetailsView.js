@@ -102,9 +102,7 @@ const styles = StyleSheet.create({
     image: {
         width: '100%',
         height: 280,
-
     },
-
     Card: {
         width: '100%',
         justifyContent: 'center',

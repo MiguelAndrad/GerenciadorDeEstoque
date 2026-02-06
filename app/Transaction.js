@@ -3,7 +3,8 @@ import { useState } from "react";
 import { useRouter } from 'expo-router';
 import ShortcutsBar from './_components/ShortcutsBar';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, Text, View, ScrollView, TextInput, Pressable } from 'react-native';
+import Entypo from '@expo/vector-icons/Entypo';
+import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
 
 export default function Transaction() {
     const router = useRouter();
@@ -15,9 +16,11 @@ export default function Transaction() {
             <ScrollView contentContainerStyle={{ flex: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
                 <View style={{ flexDirection: 'column' }}>
                     <Text style={styles.Title}>Produto</Text>
-                    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <TextInput style={styles.Modal} placeholderTextColor="grey" placeholder="Selecione um produto"></TextInput>
-                    <Ionicons name="chevron-expand-outline" size={24} color="black" style={{position: 'absolute', right: 10, top: 15}}/>
+                    <View style={styles.card}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingRight:15,paddingLeft:15}}>
+                            <Text>Selecione ou busque o produto</Text>
+                            <Ionicons name="chevron-expand-outline" size={24} color="black" />
+                        </View>
                     </View>
                 </View>
                 <View style={{ flexDirection: 'column', marginTop: 20 }}>
@@ -29,15 +32,22 @@ export default function Transaction() {
                 </View>
                 <View style={{ flexDirection: 'column', marginTop: 20 }}>
                     <Text style={styles.Title}>Barbeiro Responsável</Text>
-                    <TextInput style={styles.Modal} placeholderTextColor="grey" placeholder="Selecione o barbeiro"></TextInput>
+                    <View style={styles.card}>
+                         <View style={{ flexDirection: 'row', justifyContent:'space-between' , alignItems: 'center', paddingRight:15,paddingLeft:15 }}>
+                            <Text>Selecione o barbeiro</Text>
+                            <Ionicons name="chevron-expand-outline" size={24} color="black" />
+                         </View>
+                    </View>
                 </View>
                 <View style={{ flexDirection: 'column', marginTop: 20 }}>
                     <Text style={styles.Title}>Quantidade</Text>
-                    <TextInput style={styles.Modal} placeholderTextColor="grey" placeholder="Insira a quantidade"></TextInput>{/* vai ter um menos na esquerda, o numero no meio e um mais na direita. */}
-                </View>
-                <View style={{ flexDirection: 'column', marginTop: 20 }}>
-                    <Text style={styles.Title}>Observações</Text>
-                    <TextInput style={styles.inputDescription} multiline={true} placeholderTextColor="grey" placeholder="Insira observações"></TextInput>
+                    <View style={styles.card}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingRight:15,paddingLeft:15 }}> 
+                            <Entypo name="minus" size={24} color="black" />
+                            <Text>0</Text>
+                           <Entypo name="plus" size={24} color="black" />
+                        </View>  
+                    </View>
                 </View>
                 <Pressable onPress={() => router.push('/TransactionSuccess')} style={{ backgroundColor: '#007bff', padding: 15, borderRadius: 8, alignItems: 'center', marginTop: 30 }}>
                     <Text style={{ color: 'white', fontWeight: 'bold' }}>Registrar Movimentação</Text>
@@ -46,9 +56,7 @@ export default function Transaction() {
             <ShortcutsBar />
             <StatusBar style="auto" />
         </View>
-
     )
-
 }
 const styles = StyleSheet.create({
     header: {
@@ -75,12 +83,21 @@ const styles = StyleSheet.create({
         padding: 15,
         backgroundColor: 'white',
     },
-   inputDescription: {
+    inputDescription: {
         height: 100,
         backgroundColor: '#fff',
         borderRadius: 10,
         paddingHorizontal: 10,
         textAlignVertical: 'top',
+
+    },
+    card: {
+        backgroundColor: 'white',
+        borderRadius: 8,
+        height: 40,
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: 'gray',
 
     },
 });
