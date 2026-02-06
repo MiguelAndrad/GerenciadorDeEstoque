@@ -5,7 +5,7 @@ import Entypo from '@expo/vector-icons/Entypo';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
 import { useState } from 'react';
-import {BarberList} from '../_services/BarberService';
+import {BarberList} from '../_Services/BarberService';
 import CardBarber from '../_components/CardBarber';
 
 

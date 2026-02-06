@@ -5,7 +5,7 @@ import Search from "./_components/search";
 import Entypo from '@expo/vector-icons/Entypo';
 import { useRouter } from 'expo-router';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
-import { ProductList } from './_services/ProductService';
+import { ProductList } from './_Services/ProductService';
 import ProductItem from './_components/ProductItem';
 
 

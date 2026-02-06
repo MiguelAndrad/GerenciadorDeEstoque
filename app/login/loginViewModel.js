@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {auth} from "../_services/firebase";
+import {auth} from "../_Services/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "expo-router";
 

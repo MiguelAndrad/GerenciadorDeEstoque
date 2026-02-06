@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from 'expo-router';
 import ShortcutsBar from './_components/ShortcutsBar';
 import Feather from '@expo/vector-icons/Feather';
-import { productsBelowMinimumStock, calculateTotalInventoryValue, totalProducts,  } from './_services/ProductService';
+import { productsBelowMinimumStock, calculateTotalInventoryValue, totalProducts,  } from './_Services/ProductService';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
 import ProductItem from './_components/ProductItem';
 
