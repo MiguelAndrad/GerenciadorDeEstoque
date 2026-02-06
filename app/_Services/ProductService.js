@@ -1,4 +1,6 @@
 import Product from "../_Models/Product";
+import {collection, addDoc, getDocs, doc, updateDoc, deleteDoc} from "firebase/firestore";
+import {db} from "./firebase";
 
 let nextId = 1;
 let products = [];
@@ -43,3 +45,13 @@ export function totalProducts() {
 export function productsBelowMinimumStock() {
     return products.filter(product => product.quantity <= product.minStock);
 }
+
+
+// cria função assíncrona para adicionar produto
+export async function addProduct(UserId, product) {
+    await addDoc( // "addDoc" é uma função para adicionar um documento na coleção
+        collection(db, "users", UserId, "products"),
+        product
+    );
+}
+    
