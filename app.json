@@ -14,7 +14,11 @@
     },
     "scheme": "gerenciadorDeEstoque",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.miguellandrad.GerenciadorDeEstoque",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
