@@ -20,7 +20,7 @@ export default function details() {
             <View style={styles.header}>
                 <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Detalhes do Produto</Text>
             </View>
-                   <ScrollView contentContainerStyle={{ flex: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
+                   <ScrollView style={{flex: 1}} contentContainerStyle={{ padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
                 <View style={styles.image}>
                     <Image
                         source={product.image}
