@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 85,
         right: 20,
+        zIndex: 50,
         backgroundColor: '#1973f0',
         width: 60,
         height: 60,
@@ -69,6 +70,6 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
         shadowRadius: 3,
-        elevation: 5,
+        elevation: 50,
     },
 });
