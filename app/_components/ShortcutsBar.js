@@ -3,26 +3,27 @@ import { useRouter } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Foundation from '@expo/vector-icons/Foundation';
 import Entypo from '@expo/vector-icons/Entypo';
-
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 const ShortcutsBar = () => {
     const router = useRouter();
+    const insets = useSafeAreaInsets();
     return (
-        <View style={styles.shortcutBar}>
-            <Pressable style={styles.Pressable} onPress={() => router.push('/')}>
+        <View style={[styles.shortcutBar, { height: 70+  insets.bottom, paddingBottom: insets.bottom }]} pointerEvents='box-none'>
+            <Pressable style={styles.Pressable} pointerEvents="auto" onPress={() => router.push('/')}>
              <Entypo name="grid" size={24} color="black" />
                 <Text>Painel</Text>
             </Pressable>
-            <Pressable style={styles.Pressable} onPress={() => router.push('ProductList')}>
+            <Pressable style={styles.Pressable} pointerEvents="auto" onPress={() => router.push('ProductList')}>
                 <MaterialCommunityIcons name="clipboard-check-multiple-outline" size={24} color="black" />
                 <Text>Produtos</Text>
             </Pressable>
-            <Pressable style={styles.Pressable} onPress={() => router.push('/barbers/BarbersList')}>
+            <Pressable style={styles.Pressable} pointerEvents="auto" onPress={() => router.push('/barbers/BarbersList')}>
                <Ionicons name="person" size={24} color="black" />
                 <Text>Barbeiros</Text>
             </Pressable>
-            <Pressable style={styles.Pressable} onPress={() => router.push('Reports')}>
+            <Pressable style={styles.Pressable} pointerEvents="auto" onPress={() => router.push('Reports')}>
                 <Foundation name="graph-bar" size={24} color="black" />
                 <Text>Relatório</Text>
             </Pressable>
@@ -35,7 +36,6 @@ const styles = StyleSheet.create({
     shortcutBar: {
         backgroundColor: '#fff',
         width: '100%',
-        height: 70,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -44,6 +44,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 30,
         bottom: Platform.OS === 'ios' ? 0 : 0,//antes usava -20 no ios, pq ficava muito em cima, mas agr esta ficando normal com 0 .
         borderRadius: 10,
+        zIndex: 1,
+        elevation: 1,
     },
     Pressable:{
         justifyContent: 'center',

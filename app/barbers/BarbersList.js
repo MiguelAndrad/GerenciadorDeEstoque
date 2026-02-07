@@ -7,19 +7,20 @@ import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
 import { useState } from 'react';
 import {BarberList} from '../_Services/BarberService';
 import CardBarber from '../_components/CardBarber';
-
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function BarberListScreen() {
     const [Barbers, SetBarbers] = useState(BarberList())
+    const insets = useSafeAreaInsets();
     const router = useRouter();
 
     return (
         <View style={{ flex: 1 }}>
-            <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
+            <ScrollView contentContainerStyle={{ flexGrow: 1, padding: 20, paddingBottom: 70 + insets.bottom, backgroundColor: '#f5f5f5' }} >
                 <View style={styles.container}>
                     {/*header */}
                     <View style={{ width: '100%', marginTop: 25, fontWeight: 'bold', fontSize: 24, marginBottom: 20 }}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Lista de Produtos</Text>
+                        <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Lista de Barbeiros</Text>
                     </View>
                     {/*search*/}
                     <Search />
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     },
     btnAddProduct: {
         position: 'absolute',
-        bottom: 85,
+        bottom: 135,
         right: 20,
         backgroundColor: '#1973f0',
         width: 60,

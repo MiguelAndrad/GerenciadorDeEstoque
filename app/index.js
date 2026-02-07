@@ -6,14 +6,16 @@ import Feather from '@expo/vector-icons/Feather';
 import { productsBelowMinimumStock, calculateTotalInventoryValue, totalProducts,  } from './_Services/ProductService';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
 import ProductItem from './_components/ProductItem';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function App() {
   
   const [productBelowMinimumStock, setProductBelowMinimumStock] = useState(productsBelowMinimumStock());
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   return (
     <View style={{ flex: 1 }} >
-      <ScrollView contentContainerStyle={{ flex: 1, padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ padding: 20, paddingBottom: 70 + insets.bottom, backgroundColor: '#f5f5f5' }} >
         <View style={styles.container}>
           {/*header */}
           <View style={{ flexDirection: 'row', width: '100%', marginTop: 25, justifyContent: 'space-between', fontWeight: 'bold', fontSize: 24, marginBottom: 20 }}>

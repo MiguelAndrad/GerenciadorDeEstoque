@@ -8,19 +8,20 @@ import { ProductList } from './_Services/ProductService';
 import Entypo from '@expo/vector-icons/Entypo';
 import Octicons from '@expo/vector-icons/Octicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function details() {
     const { id } = useLocalSearchParams();
     const products = ProductList();
     const product = products.find(p => p.id == id);
-
+    const insets = useSafeAreaInsets();
     const router = useRouter();
     return (
         <View style={{ flex: 1 }}>
             <View style={styles.header}>
                 <Text style={{ fontWeight: 'bold', fontSize: 24 }}>Detalhes do Produto</Text>
             </View>
-                   <ScrollView style={{flex: 1}} contentContainerStyle={{ padding: 20, paddingBottom: 80, backgroundColor: '#f5f5f5' }} >
+                   <ScrollView style={{flex: 1}} contentContainerStyle={{ padding: 20, paddingBottom: 70 + insets.bottom, backgroundColor: '#f5f5f5' }} >
                 <View style={styles.image}>
                     <Image
                         source={product.image}
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
     },
     btnEditProduct: {
         position: 'absolute',
-        bottom: 150,
+        bottom: 185,
         right: 20,
         zIndex: 10,
         backgroundColor: '#1973f0',
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
     },
     btnMoviment: {
         position: 'absolute',
-        bottom: 80,
+        bottom: 125,
         right: 20,
         zIndex: 50,
         backgroundColor: '#787c7c',
