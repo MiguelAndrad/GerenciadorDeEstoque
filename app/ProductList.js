@@ -37,7 +37,7 @@ export default function ProductListScreen() {
                     ))}
                 </View>
             </ScrollView>
-            <Pressable onPress={() => router.push('./Add/AddView')}>
+            <Pressable onPress={() => router.push('/Add/AddView')}>
                 <View style={styles.btnAddProduct}>
                     <Entypo name="plus" size={30} color="white" />
                 </View>

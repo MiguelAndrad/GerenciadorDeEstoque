@@ -104,7 +104,7 @@ export default function details() {
                 </View>
             </ScrollView>
             <Pressable onPress={() => router.push({
-                pathname: './edit/editView', params: {
+                pathname: '/edit/editView', params: {
                     id: product.id,
                     name: product.name,
                     quantity: product.quantity,
@@ -118,7 +118,7 @@ export default function details() {
                     <Octicons name="pencil" size={30} color="white" />
                 </View>
             </Pressable>
-            <Pressable onPress={() => router.push('./Transaction')}>
+            <Pressable onPress={() => router.push('/Transaction')}>
                 <View style={styles.btnMoviment}>
                     <MaterialCommunityIcons name="swap-horizontal" size={24} color="white" />
                 </View>

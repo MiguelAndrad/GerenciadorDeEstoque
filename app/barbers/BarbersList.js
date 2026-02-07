@@ -30,12 +30,12 @@ export default function BarberListScreen() {
                             key={b.id}
                             Barber={b}
                             showIcon={true}
-                            onPress={() => router.push({ pathname: './BarberDetailsView', params: { id: b.id } })}
+                            onPress={() => router.push({ pathname: '/BarberDetailsView', params: { id: b.id } })}
                         />
                     ))}
                 </View>
             </ScrollView>
-            <Pressable onPress={() => router.push('./AddBarbers')}>
+            <Pressable onPress={() => router.push('/AddBarbers')}>
                 <View style={styles.btnAddProduct}>
                     <Entypo name="plus" size={30} color="white" />
                 </View>
